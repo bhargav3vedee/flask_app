@@ -16,3 +16,25 @@ include = ["tests", "."]
 exclude = [".venv", "build", "__pycache__", ".ruff_cache", ".pytest_cache"]
 reportMissingImports = true
 reportMissingTypeStubs = false
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flask_project"
+version = "0.1.0"
+description = "Flask Project for Pipeline"
+authors = [
+    { name = "Bhargav", email = "bhargav3vedi@gmail.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+    "flask",
+    "pytest",
+    "ruff",
+    "pylint",
+    "pyright"
+]
