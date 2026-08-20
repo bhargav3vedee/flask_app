@@ -8,29 +8,29 @@ pipeline {
         }
         stage('Setup Environment') {
             steps {
-                bat 'python -m venv venv' 
-                bat '.\\venv\\bin\\pip install --upgrade pip'
-                bat '.\\venv\\bin\\pip install .'
+                bat 'python -m venv venv'
+                bat '.\\venv\\Scripts\\pip install --upgrade pip'
+                bat '.\\venv\\Scripts\\pip install .'
             }
         }
         stage('Lint') {
             steps {
-                bat '.\\venv\\bin\\pylint .\\'
+                bat '.\\venv\\Scripts\\pylint app\\'
             }
         }
         stage('Test') {
             steps {
-                bat '.\\venv\\bin\\pytest --cov=. --cov-report=xml'
+                bat '.\\venv\\Scripts\\pytest --cov=app --cov-report=xml --junitxml=tests\\results.xml'
             }
         }
         stage('Build') {
             steps {
-                bat '.\\venv\\bin\\python -m build'
+                bat '.\\venv\\Scripts\\python -m build'
             }
         }
         stage('Deploy') {
             steps {
-                bat '.\\venv\\bin\\python -m flask run --host=0.0.0.0 --port=8000'
+                bat '.\\venv\\Scripts\\python -m flask run --host=0.0.0.0 --port=8000'
             }
         }
     }
