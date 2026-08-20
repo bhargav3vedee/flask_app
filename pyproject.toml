@@ -1,0 +1,40 @@
+[tool.pytest.ini_options]
+# Tell pytest where to look for tests
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --cov-report=term-missing"
+
+[tool.pylint]
+# Pylint doesn’t natively read pyproject.toml, but you can use plugins like `pylint-pyproject`.
+# If you install `pylint-pyproject`, these settings will be picked up.
+max-line-length = 100
+ignore = [".venv", "build", "__pycache__"]
+disable = ["missing-module-docstring", "missing-class-docstring", "missing-function-docstring"]
+
+[tool.pyright]
+include = ["tests", "."]
+exclude = [".venv", "build", "__pycache__", ".ruff_cache", ".pytest_cache"]
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flask_project"
+version = "0.1.0"
+description = "Flask Project for Pipeline"
+authors = [
+    { name = "Bhargav", email = "bhargav3vedi@gmail.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = [
+    "flask",
+    "pytest",
+    "ruff",
+    "pylint",
+    "pyright"
+]
