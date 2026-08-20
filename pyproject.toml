@@ -1,0 +1,18 @@
+[tool.pytest.ini_options]
+# Tell pytest where to look for tests
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --cov-report=term-missing"
+
+[tool.pylint]
+# Pylint doesn’t natively read pyproject.toml, but you can use plugins like `pylint-pyproject`.
+# If you install `pylint-pyproject`, these settings will be picked up.
+max-line-length = 100
+ignore = [".venv", "build", "__pycache__"]
+disable = ["missing-module-docstring", "missing-class-docstring", "missing-function-docstring"]
+
+[tool.pyright]
+include = ["tests", "."]
+exclude = [".venv", "build", "__pycache__", ".ruff_cache", ".pytest_cache"]
+reportMissingImports = true
+reportMissingTypeStubs = false
