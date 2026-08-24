@@ -15,12 +15,12 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                bat '.\\venv\\Scripts\\pylint app\\'
+                bat '.\\venv\\Scripts\\pylint .\\'
             }
         }
         stage('Test') {
             steps {
-                bat '.\\venv\\Scripts\\pytest --cov=app --cov-report=xml --junitxml=tests\\results.xml'
+                bat '.\\venv\\Scripts\\pytest --cov=. --cov-report=term-missing'
             }
         }
         stage('Build') {
