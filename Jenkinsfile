@@ -36,7 +36,6 @@ pipeline {
     }
     post {
         always {
-            junit 'tests\\results.xml'
             archiveArtifacts artifacts: 'dist\\*', fingerprint: true
         }
     }
