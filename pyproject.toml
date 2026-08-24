@@ -8,7 +8,7 @@ addopts = "-v --cov-report=term-missing"
 # Pylint doesn’t natively read pyproject.toml, but you can use plugins like `pylint-pyproject`.
 # If you install `pylint-pyproject`, these settings will be picked up.
 max-line-length = 100
-ignore = [".venv", "build", "__pycache__"]
+ignore = [".venv", "build", "__pycache__", "tests", "venv", "dist"]
 disable = ["missing-module-docstring", "missing-class-docstring", "missing-function-docstring"]
 
 [tool.pyright]
