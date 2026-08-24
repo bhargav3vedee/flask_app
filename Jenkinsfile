@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat '.\\venv\\Scripts\\pytest --cov=.'
+                bat '.\\venv\\Scripts\\pytest'
             }
         }
         stage('Build') {

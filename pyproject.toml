@@ -2,7 +2,7 @@
 # Tell pytest where to look for tests
 testpaths = ["tests"]
 pythonpath = ["."]
-addopts = "-v --cov-report=term-missing"
+addopts = ""
 
 [tool.pylint]
 # Pylint doesn’t natively read pyproject.toml, but you can use plugins like `pylint-pyproject`.
