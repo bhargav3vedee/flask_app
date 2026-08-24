@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat '.\\venv\\Scripts\\python -m flask run --host=0.0.0.0 --port=8000'
+                bat '.\\venv\\Scripts\\python main.py'
             }
         }
     }
