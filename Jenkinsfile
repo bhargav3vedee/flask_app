@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat '.\\venv\\Scripts\\pytest --cov=. --cov-report=term-missing'
+                bat '.\\venv\\Scripts\\pytest --cov=.'
             }
         }
         stage('Build') {
