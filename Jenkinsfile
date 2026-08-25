@@ -28,9 +28,11 @@ pipeline {
                 bat '.\\venv\\Scripts\\python -m build'
             }
         }
-        stage('Deploy') {
+        stage('Deploy and Test') {
             steps {
                 bat '.\\venv\\Scripts\\python main.py'
+                bat 'curl http://localhost:8000/health || exit 1'
+                bat 'for /F %p in (flask.pid) do taskkill /F /PID %p'
             }
         }
     }
